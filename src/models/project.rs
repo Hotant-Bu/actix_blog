@@ -31,6 +31,9 @@ pub struct CreateProjectRequest {
 
 #[derive(Debug, Deserialize, Validate)]
 pub struct UpdateProjectRequest {
+    // 添加serde注解，避免在query string过程中因为解析的入参请求体没有id与之对应而报错，
+    // 反序列化报错
+    #[serde(default)]
     pub id: i64,
     #[validate(length(min = 2, max = 200))]
     pub title: Option<String>,

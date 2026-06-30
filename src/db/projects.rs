@@ -161,6 +161,6 @@ pub async fn delete_project_image(pool: &MySqlPool, id: i64) -> Result<bool, sql
     let result = sqlx::query!("DELETE FROM project_images WHERE id = ?", id)
         .execute(pool)
         .await?;
-    
+
     Ok(result.rows_affected() > 0)
 }

@@ -142,6 +142,11 @@ pub fn config(cfg: &mut web::ServiceConfig) {
             .route("/published", web::get().to(get_published_projects))
             .route("", web::get().to(get_all_projects))
             .route("/{id}", web::get().to(get_project))
+            // .route("/images", web::post().to(add_project_image))
+            // .route("/{id}/images", web::get().to(get_project_images))
+            // .route("/{id}", web::put().to(update_project))
+            // .route("/{id}", web::delete().to(delete_project))
+
             .service(
                 web::scope("")
                     .wrap(AuthMiddleware)
